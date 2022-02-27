@@ -4,7 +4,7 @@ function Pizza(toppings, size) {
   this.toppings = toppings;
   this.size = size;
 }
-const myPizza = new Pizza(["anchovies", "pineapple"], "medium");
+const mePizza = new Pizza(["anchovies", "pineapple"], "medium");
 
 // Pizza.prototype.price = function ()  {
 //   let cost = 0;
@@ -35,9 +35,38 @@ Pizza.prototype.price = function()  {
       break;
     case "large":
       cost += 13;
-      // break;
-    // default:
-    //   cost += 1;    
+      break;
+    default:
+      cost += 1;    
   }
   return cost;
 };
+
+// UI Logic
+$(document).ready(function()  {
+  // $(".userOutput").hide();
+  $("#submitOrder").click(function(event) {
+    let pizza = new Pizza($("input[name=topping]:checked"),$("#size option:selected").val());
+    $("#result").text(pizza.price());
+    $(".userOutput").show();
+  });
+});
+
+// $(document).ready(function()  {
+//   $("#submitOrder").click(function(event)  {
+//     event.preventDefault();
+//     let size = $("select#size option:selected").val();
+//     let toppings = $("input:checkbox[name=topping]:checked").val();
+    
+//     const myPizza = new Pizza(toppings, size);
+//     $("#sizeB").text(size);
+//     $("#toppings").text(toppings);
+    
+//     $("#total").text(myPizza.price());
+//     $(".userOutput").show();
+    
+//   });
+// });
+
+// issue with displaying the size of the pizza.
+// issue with displaying the multiple toppings.
