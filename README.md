@@ -47,7 +47,7 @@ _I have created this webpage to show as an example of the JavaScript and JQuery 
 -Code: const myPizza = new Pizza(["anchovies", "pineapple"], "medium");
   myPizza.price();
 -Expected Output: 15;  
----
+
 ---
 
 ## License
